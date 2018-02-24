@@ -4,8 +4,11 @@
 import re
 import csv
 
-# TODO / Improvement: Handle subnet / wildcard masks, translate CIDR to mask.
-# TODO / Improvement: Add 'src_mask' and 'dst_mask' fields.
+# Future improvements: 
+# TODO: Handle subnet / wildcard masks, translate CIDR to mask.
+# TODO: Add 'src_mask' and 'dst_mask' fields.
+# TODO: Allow the script to be ran against multiple ACLs at a time.
+# TODO: Allow the in- and output files to be passed as arguments.
 
 def txt_to_list(file_path):
     """
@@ -143,7 +146,7 @@ if __name__ == "__main__":
                    'dst_ip', 'dst_operator', 'dst_port_begin', 'dst_port_end', 'acl_state']]
 
     # Read ACL to a two-dimensional list
-    acl_rules = txt_to_list('acl_small.txt')
+    acl_rules = txt_to_list('acl.txt')
 
     # Retrieve the ACL name
     acl_name = ' '.join(acl_rules[0].split()[3:])
@@ -159,10 +162,3 @@ if __name__ == "__main__":
     with open("output.csv", "w", newline='') as f:
         writer = csv.writer(f)
         writer.writerows(parsed_acl)
-
-
-
-
-
-
-    print(*parsed_acl, sep='\n')

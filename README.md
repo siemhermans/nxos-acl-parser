@@ -1,6 +1,8 @@
 # nxos-acl-parser
 Provides a script for parsing Cisco NX-OS Access Control List (ACL) rules into a CSV file. 
 
+Do note that this parser is not exhaustive. Special ACL scenarios may fail. Additionally, IPv6 ACLs are currently not taken into consideration.
+
 ## Input
 Currently the script takes a singular access list in the following format as input:
 
